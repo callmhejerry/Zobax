@@ -1,18 +1,18 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:zobax/constants.dart';
+import '../CustomWidget/zobax_button.dart';
+import '../CustomWidget/zobax_text_field.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _SignUpScreenState createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -105,75 +105,6 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
       ),
-    );
-  }
-}
-
-class ZobaxTextField extends StatelessWidget {
-  const ZobaxTextField({
-    Key? key,
-    required this.controller,
-    required this.hintText,
-  }) : super(key: key);
-
-  final TextEditingController controller;
-  final String hintText;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: 58.h,
-      child: TextFormField(
-        controller: controller,
-        decoration: InputDecoration(
-          focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide(
-              color: zobaxColor,
-              width: 2,
-            ),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12.r),
-            borderSide: const BorderSide(
-              color: Colors.white,
-              style: BorderStyle.solid,
-              width: 1,
-            ),
-          ),
-          hintText: hintText,
-          hintStyle: TextStyle(
-            color: Colors.white.withOpacity(.50),
-            fontSize: 15,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class ZobaxButton extends StatelessWidget {
-  final String label;
-  const ZobaxButton({Key? key, required this.label}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      child: Container(
-          height: 58.h,
-          width: double.infinity,
-          alignment: Alignment.center,
-          child: Text(
-            label,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20.sp,
-              fontWeight: FontWeight.w300,
-            ),
-          ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12.r),
-            color: zobaxButtonColor,
-          )),
     );
   }
 }
