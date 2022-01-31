@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:zobax/Screens/log_in.dart';
+import 'package:zobax/Screens/sign_up.dart';
 import 'package:zobax/constants.dart';
 import '../CustomWidget/zobax_button.dart';
 import '../CustomWidget/zobax_text_field.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  _SignUpScreenState createState() => _SignUpScreenState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text: "Sign up to ",
+                      text: "Log in to ",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 22.sp,
@@ -56,16 +56,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Center(
                 child: SvgPicture.asset(
                   "assets/Images/Zobax.svg",
-                  height: 260.h,
+                  height: 280.h,
                   width: 348.w,
                 ),
               ),
               SizedBox(
                 height: 63.h,
-              ),
-              ZobaxTextField(controller: controller, hintText: "Username"),
-              SizedBox(
-                height: 24.h,
               ),
               ZobaxTextField(controller: controller, hintText: "Email "),
               SizedBox(
@@ -75,7 +71,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               SizedBox(
                 height: 31.h,
               ),
-              const ZobaxButton(label: "Sign up"),
+              const ZobaxButton(label: "Log in"),
               SizedBox(
                 height: 31.h,
               ),
@@ -83,7 +79,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    "Have an account?  ",
+                    "Dont have an account?  ",
                     style: TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.w200,
@@ -94,11 +90,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const LoginScreen(),
+                        builder: (context) => const SignUpScreen(),
                       ),
                     ),
                     child: const Text(
-                      "Log in",
+                      "Sign up",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 13,
