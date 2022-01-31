@@ -60,28 +60,67 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               SizedBox(
-                height: 64.h,
+                height: 63.h,
               ),
-              textField(hintText: "Username"),
+              ZobaxTextField(controller: controller, hintText: "Username"),
               SizedBox(
                 height: 24.h,
               ),
-              textField(hintText: "Email "),
+              ZobaxTextField(controller: controller, hintText: "Email "),
               SizedBox(
                 height: 24.h,
               ),
-              textField(hintText: "Password"),
+              ZobaxTextField(controller: controller, hintText: "Password"),
               SizedBox(
-                height: 24.h,
+                height: 31.h,
               ),
+              const ZobaxButton(label: "Sign up"),
+              SizedBox(
+                height: 31.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text(
+                    "Have an account?  ",
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w200,
+                      color: Colors.white,
+                    ),
+                  ),
+                  InkWell(
+                    child: Text(
+                      "Sign in",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  )
+                ],
+              )
             ],
           ),
         ),
       ),
     );
   }
+}
 
-  SizedBox textField({required String hintText}) {
+class ZobaxTextField extends StatelessWidget {
+  const ZobaxTextField({
+    Key? key,
+    required this.controller,
+    required this.hintText,
+  }) : super(key: key);
+
+  final TextEditingController controller;
+  final String hintText;
+
+  @override
+  Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
       height: 58.h,
@@ -95,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12.r),
             borderSide: const BorderSide(
               color: Colors.white,
               style: BorderStyle.solid,
@@ -109,6 +148,32 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class ZobaxButton extends StatelessWidget {
+  final String label;
+  const ZobaxButton({Key? key, required this.label}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      child: Container(
+          height: 58.h,
+          width: double.infinity,
+          alignment: Alignment.center,
+          child: Text(
+            label,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20.sp,
+              fontWeight: FontWeight.w300,
+            ),
+          ),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12.r),
+            color: zobaxButtonColor,
+          )),
     );
   }
 }
