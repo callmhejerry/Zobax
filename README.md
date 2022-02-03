@@ -16,7 +16,7 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 
-<img src = "Screenshot\sign up.png",height = 750>
+<img src = "Screenshot\sign up.png" height = 750>
 
 
 <img src = "Screenshot\login.png" height = 750>
